@@ -1,0 +1,25 @@
+<template name="sidebar">
+  <div class="sidebar">
+    <div class="session-info">
+      <div class='btn-group'>
+        {{#if currentUser}}
+          <div class='btn btn-lg'>{{currentUser.username}}</div>
+          <div class='btn btn-lg logout'>Logout</div>
+        {{else}}
+          <div class='btn btn-lg login'>Login</div>
+          <div class='btn btn-lg join'>Join</div>
+        {{/if}}
+      </div>
+    </div>
+    <ul class="nav nav-pills nav-stacked" role="tablist">
+      <li>
+        <div class="input-group new-board">
+          <input type="text" class="form-control" placeholder="New Boards">
+        </div>
+      </li>
+      {{#each boards}}
+        <li><a href="{{pathFor 'items' _boardId=_id}}">{{name}}</a></li>
+      {{/each}}
+    </ul>
+  </div>
+</template>

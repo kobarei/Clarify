@@ -1,0 +1,14 @@
+.layout {
+  $left-width: 20%;
+  .left {
+    padding: 10px;
+    width: $left-width;
+    position: fixed;
+  }
+  .right {
+    padding: 10px;
+    width: 100% - $left-width;
+    margin: 0 0 0 $left-width;
+    overflow: scroll;
+  }
+}

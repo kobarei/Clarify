@@ -1,0 +1,74 @@
+.items {
+  font-size: 16px;
+  .deceive-focus:focus {
+    outline: none;
+  }
+  .edit-board-name {
+    font-size: 30px;
+    border: none;
+    width: 95%;
+    cursor: pointer;
+    &:focus {
+      cursor: text;
+    }
+  }
+  .trash-icon {
+    color: #d9534f;
+    cursor: pointer;
+  }
+  .list {
+    padding: 10px 10px 10px 0;
+    width: 360px;
+    max-height: 100%;
+    float: left;
+    .list-name {
+      font-size: 18px;
+      width: 100%;
+    }
+  }
+  .new-estimate {
+    height: 20px;
+  }
+  .item-form {
+    textarea {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+  .drop-pos {
+    height: 15px;
+    width: 100%;
+    border: none;
+  }
+  .drop-pos-open {
+    height: 40px;
+    width: 100%;
+    margin: 5px 0;
+    background: #e6e6e6;
+  }
+  .item {
+    padding: 10px;
+    margin: 0 0 10px 0;
+    width: 100%;
+    text-align: left;
+    border: 1px solid #ddd;
+    background: #fff;
+    &:hover {
+      background: #e6e6e6;
+    }
+    textarea {
+      border: none;
+      width: 100%;
+      max-width: 100%;
+    }
+    input {
+      border: none;
+    }
+  }
+  .show {
+    display: block;
+  }
+  .hide {
+    display: none;
+  }
+}
