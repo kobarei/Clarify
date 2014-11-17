@@ -1,0 +1,10 @@
+<template name="board">
+  <div class="board">
+    <input type="text" name="editBoard" value="{{ board.name }}" class="edit-board-name border-none">
+    <i class="glyphicon glyphicon-trash trash-icon"></i>
+    <div class="row">
+      {{> lists boardId=board._id }}
+      {{> tags  boardId=board._id }}
+    </div>
+  </div>
+</template>

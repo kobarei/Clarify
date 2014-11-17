@@ -1,0 +1,34 @@
+<template name="tags">
+  <div class="tags col-sm-2">
+    <h4>リスト追加</h4>
+    <div class="input-group new-tag">
+      <input name="addLists" type="text" class="form-control" placeholder="リスト追加">
+    </div>
+    <h4>メンバー追加</h4>
+    <div class="input-group new-tag">
+      <input name="addMembers" type="text" class="form-control" placeholder="メンバー追加">
+      <div name='list-members' class="hide dropdown-menu">
+        {{#each users}}
+          <div class="user-preview btn btn-default">{{username}}</div>
+        {{/each}}
+      </div>
+    </div>
+    <h4>Tags</h4>
+    <div class="input-group new-tag">
+      <input name="newTag" type="text" class="form-control" placeholder="New Tag">
+      <div name='btn-class' class="hide dropdown-menu">
+        <div class='tag-preview btn btn-default'></div>
+        <div class='tag-preview btn btn-primary'></div>
+        <div class='tag-preview btn btn-success'></div>
+        <div class='tag-preview btn btn-info'></div>
+        <div class='tag-preview btn btn-warning'></div>
+        <div class='tag-preview btn btn-danger'></div>
+      </div>
+    </div>
+    {{#each tags}}
+      <div class="tag btn {{colorClass}}">
+        {{ name }} <span class="badge">{{ count }}</span>
+      </div>
+    {{/each}}
+  </div>
+</template>

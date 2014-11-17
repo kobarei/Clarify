@@ -1,0 +1,17 @@
+@import "variables";
+
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+.hover-gray {
+  background: $hover-gray;
+}
+.align-right {
+  text-align: right;
+}
+.border-none {
+  border: none;
+}

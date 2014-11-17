@@ -2,9 +2,9 @@ Router.configure
   layoutTemplate: 'layout'
   loadingTemplate: 'loading'
 
-  waitOn: ->
-    Meteor.subscribe 'boards'
-    Meteor.subscribe 'items', @params._boardId
+  onBeforeAction: ->
+    if Meteor.user()
+      Meteor.subscribe 'boards'
 
 Router.map ->
   @route 'login',
@@ -15,22 +15,21 @@ Router.map ->
     path: '/join',
     template: 'join'
 
-  @route 'items',
+  @route 'board',
     path: '/b/:_boardId',
-    template: 'items',
+    template: 'board',
+    onBeforeAction: ->
+      if Meteor.user()
+        Session.set 'findUserQuery', ''
+        Meteor.subscribe 'lists', @params._boardId
+        Meteor.subscribe 'items', @params._boardId
+        Meteor.subscribe 'tags', @params._boardId
+        Meteor.subscribe 'notification', @params._boardId
+        Meteor.subscribe 'notificationHandler', @params._boardId
+      else
+        Router.go('login')
     data: ->
-      packedItems = []
-      _.each ["TODO", "DOING", "DONE"], (status) =>
-        packedItems.push {
-          status: status
-          items: Items.find
-            boardId: @params._boardId
-            status: status
-          ,
-            sort: createdAt: -1
-        }
       board: Boards.findOne @params._boardId
-      status: packedItems
 
   @route 'index',
     path: '/',

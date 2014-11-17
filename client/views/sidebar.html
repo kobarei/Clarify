@@ -14,12 +14,13 @@
     <ul class="nav nav-pills nav-stacked" role="tablist">
       <li>
         <div class="input-group new-board">
-          <input type="text" class="form-control" placeholder="New Boards">
+          <input type="text" class="form-control" placeholder="New Board">
         </div>
       </li>
       {{#each boards}}
-        <li><a href="{{pathFor 'items' _boardId=_id}}">{{name}}</a></li>
+        <li><a href="{{pathFor 'board' _boardId=_id}}">{{name}}</a></li>
       {{/each}}
     </ul>
+    {{> notifications }}
   </div>
 </template>

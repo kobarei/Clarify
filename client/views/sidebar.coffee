@@ -1,6 +1,6 @@
 Template.sidebar.helpers
   boards: ->
-    Boards.find active: true
+    Boards.find archivedAt: $exists: false
 
 Template.sidebar.events
   'click .login': () ->
@@ -12,12 +12,16 @@ Template.sidebar.events
   'click .join': () ->
     Router.go 'join'
 
-
   'keydown input[type=text]': (e) ->
     if e.which is 13
       e.preventDefault()
-      Boards.insert
-        user: Meteor.user()
+      boardId = Boards.insert
         name: e.target.value
-        active: true
+        users: [Meteor.user()]
+        createdAt: moment().jp().format()
+      _.each ["TODO", "DOING", "DONE"], (status) ->
+        Lists.insert
+          name: status
+          boardId: boardId
+          createdAt: moment().jp().format()
       e.target.value = ""

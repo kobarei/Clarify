@@ -1,0 +1,40 @@
+<template name="lists">
+  {{#each lists}}
+    <div class="list col-sm-3">
+      <div class="panel panel-primary">
+        <div class="panel-heading">{{ name }}</div>
+        <div class="panel-body">
+          <div class='drop-pos hide'></div>
+          <div class="item-form">
+            Title: <textarea type="text" placeholder="New Task" name="newTask" class="new-task"></textarea>
+            見積: <input type="time" name="newEstimateTime" class="new-estimate" value="00:00"><br>
+            期日: <input type="date" name="newLimitDate" class="new-limit-date" value="{{date}}"><br>
+            tags: <input type="text" name="newTags" class="new-tags">
+            <button class="btn btn-primary submit-new-task">ok</button>
+          </div>
+          {{#each items _id}}
+            <div tabindex='0' draggable="{{currentUserIs user}}" class="item deceive-focus">
+            {{#if currentUserIs user}}
+              <textarea type="text" placeholder="New Task" name="editTask" class="new-task deceive-focus border-none" value="{{name}}"></textarea>
+              見積: <input type="time" name="editEstimateTime" class="edit-estimate border-none" value="{{estimateTime}}"><br>
+              期日: <input type="date" name="editLimitDate" class="edit-limit-date border-none" value="{{limitDate}}"><br>
+              {{#each tags}}
+                <div class="btn {{colorClass}}">{{ name }}</div>
+              {{/each}}
+              <div class="align-right">{{ user.username }}</div>
+              <div class="align-right edit-task-btns hide">
+                <button class="btn btn-warning cancel-edit-task">cancel</button>
+                <button class="btn btn-primary submit-edit-task">update</button>
+              </div>
+            {{else}}
+              <div>{{name}}</div>
+              <div>{{estimateTime}}</div>
+              <div class="align-right">{{ user.username }}</div>
+            {{/if}}
+            </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</template>
