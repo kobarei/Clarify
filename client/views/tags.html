@@ -12,10 +12,12 @@
           <div class="user-preview btn btn-default">{{username}}</div>
         {{/each}}
       </div>
-      {{#each boardUsers}}
-        <div class="btn btn-default">{{username}}</div>
-      {{/each}}
     </div>
+    <ul>
+      {{#each boardUsers}}
+        <li>{{username}}</li>
+      {{/each}}
+    </ul>
     <h4>Tags</h4>
     <div class="input-group new-tag">
       <input name="newTag" type="text" class="form-control" placeholder="タグ追加">

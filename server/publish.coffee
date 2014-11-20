@@ -37,10 +37,17 @@ Meteor.publish "notificationHandler", (boardId) ->
           boardId: boardId
 
     changed: (id, fields) ->
-      unless fields.archivedAt?
+      item = Items.findOne id
+      if fields.archivedAt?
         Notifications.insert
-          itemId: fields._id
-          user: fields.user.username
+          itemId: item._id
+          user: item.user.username
+          action: "カードをアーカイブ"
+          boardId: boardId
+      else
+        Notifications.insert
+          itemId: item._id
+          user: item.user.username
           action: "カードを変更"
           boardId: boardId
 

@@ -2,13 +2,15 @@
   $left-width: 15%;
   .left {
     padding: 10px;
+    height: 100vh;
     width: $left-width;
     position: fixed;
+    background: #fff;
+    z-index: 100;
   }
   .right {
     padding: 10px;
     width: 100% - $left-width;
     margin: 0 0 0 $left-width;
-    overflow: scroll;
   }
 }

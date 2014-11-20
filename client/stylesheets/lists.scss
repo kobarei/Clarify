@@ -1,0 +1,62 @@
+@import "variables";
+
+.lists {
+  padding-top: 40px;
+  overflow: scroll;
+  .list {
+    padding: 10px 10px 10px 0;
+    max-height: 100%;
+    width: 300px;
+    float: left;
+    .list-name {
+      font-size: 18px;
+      width: 100%;
+    }
+
+    .new-estimate {
+      height: 26px;
+    }
+    .new-limit-date {
+      height: 26px;
+      width: 150px;
+    }
+    .edit-limit-date {
+      width: 143px;
+    }
+    .panel-body {
+      padding: 0;
+      .item-form {
+        margin: 10px;
+        textarea {
+          width: 100%;
+          max-width: 100%;
+        }
+      }
+      .drop-pos {
+        position: absolute;
+        z-index: 1000;
+      }
+      .drop-pos-open {
+        height: 40px;
+        width: 100%;
+        opacity: .6;
+        background: $hover-gray;
+      }
+      .item {
+        padding: 10px;
+        margin: 10px;
+        text-align: left;
+        border: 1px solid #ddd;
+        background: #fff;
+        &:hover {
+          background: $hover-gray;
+        }
+        textarea {
+          width: 100%;
+          max-width: 100%;
+        }
+      }
+    }
+
+  }
+}

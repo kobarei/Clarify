@@ -3,6 +3,10 @@ dragSrcId = null
 hideDropPos = (e) ->
   $('.drop-pos').removeClass('drop-pos-open').addHide()
 
+Template.lists.rendered = () ->
+  @autorun ->
+    $('.lists').width Lists.find().count() * 310 + $('.tags').width()
+
 Template.lists.helpers
   currentUserIs: (user) ->
     Meteor.user()._id is user._id
@@ -10,8 +14,8 @@ Template.lists.helpers
   lists: ->
     Lists.find()
 
-  items: (_id) ->
-    Items.find listId: _id
+  items: (listId) ->
+    Items.find listId: listId
 
   date: ->
     moment().jp().format('YYYY-MM-DD')
@@ -61,7 +65,7 @@ Template.lists.events
         name: form.find('textarea[name=newTask]').val()
         user: Meteor.user()
         listId: @_id
-        boardId: location.href.match(/\/b\/(.+)/)[1]
+        boardId: @boardId
         tags: tags.fetch()
         estimateTime: form.find('input[name=newEstimateTime]').val()
         limitDate: form.find('input[name=newLimitDate]').val()

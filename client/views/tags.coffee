@@ -1,7 +1,6 @@
 Template.tags.helpers
   boardUsers: () ->
-    board = Boards.findOne @boardId
-    board.users
+    @board.users
 
   tags: () ->
     Tags.find()
@@ -15,7 +14,7 @@ Template.tags.events
     if e.which is 13 and e.target.value.length isnt 0
       Lists.insert
         name: e.target.value
-        boardId: @boardId
+        boardId: @board._id
         createdAt: moment().jp().format()
       e.target.value = ""
 
@@ -45,7 +44,7 @@ Template.tags.events
   'click .tag-preview': (e) ->
     Tags.insert
       name: e.target.innerHTML
-      boardId: @boardId
+      boardId: @board._id
       colorClass: e.target.className.match(/btn-(.*)/)[0]
       count: 0
       createdAt: moment().jp().format()
