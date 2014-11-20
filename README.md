@@ -9,7 +9,7 @@ TODO
 
 ## Demo
 
-[https://demo-clarify.herokuapp.com](https://demo-clarify.herokuapp.com)
+[https://demo-clarify.herokuapp.com](https://demo-clarify.herokuapp.com/login)
 
 Email: example@example.com
 
