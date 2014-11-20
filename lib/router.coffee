@@ -18,7 +18,7 @@ Router.map ->
   @route 'board',
     path: '/b/:_boardId',
     template: 'board',
-    onBeforeAction: ->
+    waitOn: ->
       if Meteor.user()
         Session.set 'findUserQuery', ''
         Meteor.subscribe 'users'

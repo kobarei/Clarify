@@ -11,16 +11,18 @@
         {{/if}}
       </div>
     </div>
-    <ul class="nav nav-pills nav-stacked" role="tablist">
-      <li>
-        <div class="input-group new-board">
-          <input type="text" class="form-control" placeholder="New Board">
-        </div>
-      </li>
-      {{#each boards}}
-        <li><a href="{{pathFor 'board' _boardId=_id}}">{{name}}</a></li>
-      {{/each}}
-    </ul>
-    {{> notifications }}
+    {{#if currentUser}}
+      <ul class="nav nav-pills nav-stacked" role="tablist">
+        <li>
+          <div class="input-group new-board">
+            <input type="text" class="form-control" placeholder="New Board">
+          </div>
+        </li>
+        {{#each boards}}
+          <li><a href="{{pathFor 'board' _boardId=_id}}">{{name}}</a></li>
+        {{/each}}
+      </ul>
+      {{> notifications }}
+    {{/if}}
   </div>
 </template>
