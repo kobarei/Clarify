@@ -2,7 +2,10 @@
   {{#each lists}}
     <div class="list col-sm-3">
       <div class="panel panel-primary">
-        <div class="panel-heading">{{ name }}</div>
+        <div class="panel-heading">
+          {{ name }}
+          <i class="glyphicon glyphicon-trash trash-icon archive-list"></i>
+        </div>
         <div class="panel-body">
           <div class='drop-pos hide'></div>
           <div class="item-form">
@@ -21,7 +24,7 @@
               {{#each tags}}
                 <div class="btn {{colorClass}}">{{ name }}</div>
               {{/each}}
-              <div class="align-right">{{ user.username }}</div>
+              <div class="align-right">{{ user.username }}<i class="glyphicon glyphicon-trash trash-icon archive-item"></i></div>
               <div class="align-right edit-task-btns hide">
                 <button class="btn btn-warning cancel-edit-task">cancel</button>
                 <button class="btn btn-primary submit-edit-task">update</button>

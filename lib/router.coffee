@@ -21,6 +21,7 @@ Router.map ->
     onBeforeAction: ->
       if Meteor.user()
         Session.set 'findUserQuery', ''
+        Meteor.subscribe 'users'
         Meteor.subscribe 'lists', @params._boardId
         Meteor.subscribe 'items', @params._boardId
         Meteor.subscribe 'tags', @params._boardId

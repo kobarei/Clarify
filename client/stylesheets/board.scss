@@ -18,8 +18,10 @@
     }
   }
   .trash-icon {
-    color: #d9534f;
     cursor: pointer;
+    &.archive-board {
+      color: #d9534f;
+    }
   }
   .list {
     padding: 10px 10px 10px 0;

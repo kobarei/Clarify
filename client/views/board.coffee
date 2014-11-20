@@ -5,5 +5,5 @@ Template.board.events
     if e.which is 13 and e.target.value.length isnt 0
       Boards.update @board._id, $set: name: e.target.value
 
-  'click .trash-icon': (e) ->
+  'click .archive-board': (e) ->
     Boards.update @board._id, $set: archivedAt: moment().jp().format()

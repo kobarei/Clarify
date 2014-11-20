@@ -3,7 +3,7 @@ Template.tags.helpers
     Tags.find()
 
   users: () ->
-    Meteor.users.find(username: Session.get 'findUserQuery').fetch()
+    Meteor.users.find(username: new RegExp(Session.get 'findUserQuery')).fetch()
 
 Template.tags.events
   # list
@@ -17,8 +17,9 @@ Template.tags.events
 
   # member
   'keyup input[name=addMembers]': (e) ->
-    Session.set 'findUserQuery', e.target.value
-    $('[name=list-members]').addShow()
+    unless e.target.value.length is 0
+      Session.set 'findUserQuery', e.target.value
+      $('[name=list-members]').addShow()
 
   'blur input[name=addMembers]': (e) ->
     $('[name=list-members]').toggleDisplay() if e.target.value.length is 0

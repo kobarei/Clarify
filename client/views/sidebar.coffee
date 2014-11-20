@@ -1,6 +1,6 @@
 Template.sidebar.helpers
   boards: ->
-    Boards.find archivedAt: $exists: false
+    Boards.find()
 
 Template.sidebar.events
   'click .login': () ->

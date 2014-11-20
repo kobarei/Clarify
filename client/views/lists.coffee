@@ -42,6 +42,14 @@ Template.lists.events
     $(e.target).parent('.item-form').find('[name=suggestTags]').addShow()
     Session.set 'suggestTagsQuery', e.target.value
 
+  'click .archive-list': (e) ->
+    Lists.update @_id, $set: archivedAt: moment().jp().format()
+
+  'click .archive-item': (e) ->
+    @tags.forEach (tag) ->
+      Tags.update tag._id, $inc: count: -1
+    Items.update @_id, $set: archivedAt: moment().jp().format()
+
   # insert update Item
   'click .submit-new-task': (e) ->
     form = $(e.target).parent('.item-form')
