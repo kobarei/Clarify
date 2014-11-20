@@ -6,6 +6,15 @@ TODO
 ![d&d](http://i.gyazo.com/d93074f59edd6b35ccebe7fdbe0bd7d7.gif)
 ----
 
+
+## Demo
+
+[https://demo-clarify.herokuapp.com](https://demo-clarify.herokuapp.com)
+
+Email: example@example.com
+
+Password: example
+
 ## Getting Started
 
 
