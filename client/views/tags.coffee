@@ -1,4 +1,8 @@
 Template.tags.helpers
+  boardUsers: () ->
+    board = Boards.findOne @boardId
+    board.users
+
   tags: () ->
     Tags.find()
 
@@ -22,11 +26,11 @@ Template.tags.events
       $('[name=list-members]').addShow()
 
   'blur input[name=addMembers]': (e) ->
-    $('[name=list-members]').toggleDisplay() if e.target.value.length is 0
+    $('[name=list-members]').addHide() if e.target.value.length is 0
 
   'click .user-preview': (e) ->
     Boards.update Template.parentData(1).board._id,
-      $push: users: @
+      $addToSet: users: @
     $('input[name=addMembers]').val("")
     $('[name=list-members]').toggleDisplay()
 
@@ -36,7 +40,7 @@ Template.tags.events
     $('[name=btn-class]').addShow()
 
   'blur input[name=newTag]': (e) ->
-    $('[name=btn-class]').toggleDisplay() if e.target.value.length is 0
+    $('[name=btn-class]').addHide() if e.target.value.length is 0
 
   'click .tag-preview': (e) ->
     Tags.insert

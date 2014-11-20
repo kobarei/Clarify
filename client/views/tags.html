@@ -4,7 +4,7 @@
     <div class="input-group new-tag">
       <input name="addLists" type="text" class="form-control" placeholder="リスト追加">
     </div>
-    <h4>メンバー追加</h4>
+    <h4>メンバー</h4>
     <div class="input-group new-tag">
       <input name="addMembers" type="text" class="form-control" placeholder="メンバー追加">
       <div name='list-members' class="hide dropdown-menu">
@@ -12,6 +12,9 @@
           <div class="user-preview btn btn-default">{{username}}</div>
         {{/each}}
       </div>
+      {{#each boardUsers}}
+        <div class="btn btn-default">{{username}}</div>
+      {{/each}}
     </div>
     <h4>Tags</h4>
     <div class="input-group new-tag">

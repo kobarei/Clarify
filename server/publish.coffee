@@ -2,7 +2,11 @@ Meteor.publish "users", () ->
   Meteor.users.find()
 
 Meteor.publish "boards", () ->
-  Boards.find archivedAt: $exists: false
+  Boards.find
+    users:
+      $elemMatch:
+        _id: @userId
+    archivedAt: $exists: false
 
 Meteor.publish "lists", (boardId) ->
   check boardId, String
