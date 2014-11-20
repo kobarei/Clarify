@@ -2,7 +2,7 @@
 
 TODO
 
-タスクに対して見積もりもして共有する
+タスクに対して所要時間を見積もりもして共有する
 ![d&d](http://i.gyazo.com/d93074f59edd6b35ccebe7fdbe0bd7d7.gif)
 ----
 
